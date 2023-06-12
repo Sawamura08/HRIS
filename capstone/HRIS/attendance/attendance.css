@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&family=Pacifico&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	max-width: 100vw;
+	min-height: 100vh;
+	font-family: "Inter", sans-serif;
+	overflow-x: hidden;
+}
+
+.containers {
+	margin-top: 1vh;
+	width: 100vw;
+	min-height: 100vh;
+	z-index: -1;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Attendance title Container */
+
+.attendanceHeaderContainer {
+	width: 100%;
+	padding: 1rem;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	background-color: #bfe1d7;
+	margin-top: 9vh;
+}
+
+.attendanceHeaderContainer .title {
+	text-align: center;
+	margin-top: 0.5rem;
+	line-height: 3.5rem;
+	font-size: 1.8rem;
+	font-weight: 600;
+}
+
+/* End of Attendance title Container */
+
+/* Attendance input */
+
+.attendanceInputContainer {
+	width: 100%;
+	padding: 1rem 2.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 2rem 0;
+}
+
+.dateContainer {
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	background-color: #bfe1d7;
+}
+
+.dateContainer p {
+	margin: 1rem 0 0.5rem 0;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.dateContainer .time {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.attendanceData {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	box-shadow: 5px 5px 10px #5a5a5a, -5px -5px 10px #ffffff;
+}
+
+.shiftSched {
+	margin-top: 1rem;
+}
+
+.shiftSched h1 {
+	font-size: 2rem;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.timeInOut {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 1rem;
+}
+
+.timeInOut .go {
+	font-size: 1.5rem;
+	font-weight: 400;
+	padding: 0.5rem;
+	background-color: #50c2c9;
+	border-radius: 10px;
+	text-align: center;
+	color: white;
+	width: 25%;
+	margin: 1.5rem auto;
+	box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	border: none;
+}
+
+.timeInput {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	margin: 0 0.25rem;
+}
+
+.timeInOut .time {
+	width: 20%;
+	margin: 1.5rem auto;
+	text-align: center;
+}
+/* End of Attendance input */
+
+/* Attendance Log Container */
+
+.logContainer {
+	width: 100%;
+	padding: 1rem 2.5rem;
+}
+
+.attendanceLogContainer {
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	line-height: 2;
+	text-align: center;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	background-color: #bfe1d7;
+}
+
+.attendanceLogContainer p {
+	font-size: 2rem;
+	font-weight: 600;
+}
+
+.log {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+	box-shadow: inset 5px 5px 10px #5a5a5a, inset -5px -5px 10px #ffffff;
+}
+
+.dayAndDate {
+	width: 35%;
+	padding: 0.5rem;
+	background-color: #50c2c9;
+	color: white;
+	font-size: 1.5rem;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	font-weight: 600;
+}
+
+.duration {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	padding: 1rem;
+}
+
+/* End of Attendance log Container */
+/* Media Queries */
+@media all and (min-width: 400px) and (orientation: portrait) {
+	.containers {
+		margin-top: 7vh;
+	}
+}
+@media all and (min-width: 800px) and (min-height: 1000px) and (orientation: portrait) {
+	.containers {
+		margin-top: 0;
+	}
+	.attendanceHeaderContainer {
+		margin-top: 0;
+	}
+}
+@media all and (min-width: 900px) and (min-height: 1200px) and (orientation: portrait) {
+	.containers {
+		flex-direction: row;
+		padding: 1rem;
+	}
+
+	.attendanceInputContainer {
+		justify-content: flex-start;
+		margin: 0;
+		height: 100vh;
+	}
+
+	.dateContainer p {
+		font-size: 2rem;
+	}
+
+	.dateContainer .time {
+		font-size: 2rem;
+	}
+
+	.attendanceData {
+		height: 25vh;
+	}
+
+	.attendanceLogContainer p {
+		font-size: 2.5rem;
+		line-height: 2.5;
+	}
+}
+
+@media all and (min-width: 1000px) and (min-height: 600px) and (orientation: landscape) {
+	.attendanceHeaderContainer {
+		margin: 0;
+	}
+	.containers {
+		flex-direction: row;
+		min-height: 40vh;
+		padding: 1rem;
+	}
+
+	.attendanceInputContainer {
+		justify-content: flex-start;
+		margin: 0;
+		height: unset;
+		min-height: 40vh;
+	}
+
+	.dateContainer p {
+		font-size: 2rem;
+	}
+
+	.dateContainer .time {
+		font-size: 2rem;
+	}
+
+	.attendanceData {
+		height: 35vh;
+	}
+
+	.attendanceLogContainer p {
+		font-size: 2.5rem;
+		line-height: 2.5;
+	}
+}

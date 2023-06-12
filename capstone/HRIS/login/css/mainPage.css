@@ -1,0 +1,595 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&family=Poppins:wght@200;300;400;700;800;900&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	max-width: 100vw;
+	min-height: 100vh;
+	font-family: "Poppins", sans-serif;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* Container */
+
+.containers {
+	margin-top: 10vh;
+	width: 100%;
+	min-height: 100vh;
+	z-index: -1;
+	padding: 1rem;
+}
+
+/* end of Container */
+
+/* User Info Container  */
+
+.userInfoContainer {
+	margin: 1.2rem 0 2rem 0;
+	width: 100%;
+	padding: 0 1rem;
+	display: flex;
+	justify-content: center;
+}
+
+.photoContainer {
+	flex-basis: 50%;
+}
+
+.photo {
+	width: 100%;
+	box-shadow: 2px 0px 8px 7px rgba(0, 0, 0, 0.22);
+	margin: 0 auto;
+}
+
+.infoContainer {
+	flex-basis: 160%;
+	margin-left: 1rem;
+}
+
+.infoContainer h4 {
+	margin-bottom: 0.5rem;
+	font-size: 1.9rem;
+	font-weight: 900;
+}
+
+.infoContainer p {
+	font-size: 1.2rem;
+	margin: 0.3rem 0;
+	opacity: 1;
+	font-weight: 400;
+}
+
+/* End of User Info Container */
+
+/* Annoucement Container */
+
+.announcementContainer {
+	width: 100%;
+	padding: 1rem;
+	min-height: 25vh;
+	box-shadow: 2px 0px 8px 7px rgba(0, 0, 0, 0.22);
+	border-radius: 15px;
+	width: 100%;
+	padding: 1rem;
+	min-height: 25vh;
+	box-shadow: 2px 0px 8px 7px rgba(0, 0, 0, 0.22);
+	border-radius: 15px;
+}
+
+table {
+	width: 100%;
+}
+
+.thead {
+	background-color: #50c2c9;
+	width: 100%;
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 600;
+	color: black;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.table {
+	border: solid 1px #50c2c9;
+}
+
+tbody tr td {
+	text-align: center;
+}
+
+tr th i {
+	margin: 0 0.5rem;
+}
+
+/* End of Annoucement Container */
+
+/* Calendar */
+
+.wrapper {
+	margin: 15px auto;
+	padding: 1rem;
+	max-width: 1100px;
+	box-shadow: 2px 0px 8px 7px rgba(0, 0, 0, 0.22);
+	border-radius: 15px;
+}
+
+.container-calendar {
+	background: #fff;
+	padding: 15px;
+	max-width: 475px;
+	margin: 0 auto;
+	overflow: auto;
+}
+
+.button-container-calendar button {
+	cursor: pointer;
+	display: inline-block;
+	zoom: 1;
+	background: #00a2b7;
+	color: #fff;
+	border: 1px solid #0aa2b5;
+	border-radius: 4px;
+	padding: 5px 10px;
+}
+
+.table-calendar {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.table-calendar td,
+.table-calendar th {
+	padding: 5px;
+	border: 1px solid #e2e2e2;
+	text-align: center;
+	vertical-align: top;
+}
+
+.date-picker.selected {
+	font-weight: bold;
+	outline: 1px dashed #00bcd4;
+}
+
+.date-picker.selected span {
+	border-bottom: 2px solid currentColor;
+}
+
+/* sunday */
+.date-picker:nth-child(1) {
+	color: red;
+}
+
+/* friday */
+.date-picker:nth-child(6) {
+	color: green;
+}
+
+#monthAndYear {
+	text-align: center;
+	margin-top: 0;
+}
+
+.button-container-calendar {
+	position: relative;
+	margin-bottom: 1em;
+	overflow: hidden;
+	clear: both;
+}
+
+#previous {
+	float: left;
+}
+
+#next {
+	float: right;
+}
+
+.footer-container-calendar {
+	margin-top: 1em;
+	border-top: 1px solid #dadada;
+	padding: 10px 0;
+}
+
+.footer-container-calendar select {
+	cursor: pointer;
+	display: inline-block;
+	zoom: 1;
+	background: #ffffff;
+	color: #585858;
+	border: 1px solid #bfc5c5;
+	border-radius: 3px;
+	padding: 5px 1em;
+}
+
+/* End of Calendar */
+
+/* Attendance */
+
+.attendanceContainer {
+	width: 100%;
+	box-shadow: 2px 0px 8px 7px rgba(0, 0, 0, 0.22);
+	border-radius: 15px;
+	padding: 1rem;
+}
+
+.time {
+	text-align: center;
+	font-size: 2.5rem;
+	margin: 1rem 0 2rem 0;
+	font-weight: 600;
+}
+
+.attendanceButtonContainer {
+	display: flex;
+	justify-content: space-around;
+}
+
+.attendanceButton {
+	padding: 0.8rem 1rem;
+	font-size: 1.8rem;
+	font-weight: 600;
+	width: 100%;
+	border-radius: 10px;
+	border: 1px solid #018192;
+	color: white;
+	background-color: #50c2c9;
+	outline: none;
+	cursor: pointer;
+}
+
+/* End of Attendance */
+
+/* For modal */
+
+.modals {
+	display: block;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-contents {
+	background-color: #fefefe;
+	margin: 70% auto;
+	border-radius: 10%;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 100%;
+	padding: 1rem;
+
+	animation-name: modalAnim;
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in-out;
+}
+
+.announce {
+	margin-top: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@keyframes modalAnim {
+	from {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.modal-title {
+	font-weight: 900;
+}
+
+.modal-contents .text {
+	margin-top: 2.5rem;
+	text-align: center;
+	font-size: 2rem;
+}
+
+.buttonContainer {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.flexContainer {
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
+	margin: 0 auto;
+}
+
+#close,
+.go,
+#go {
+	font-size: 1.5rem;
+	font-weight: 400;
+	padding: 0.8rem 0.5rem;
+	background-color: #50c2c9;
+	border-radius: 10px;
+	width: 100%;
+	text-align: center;
+	color: #000;
+	margin: 1.5rem auto;
+	box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	border: none;
+}
+
+#go {
+	text-decoration: none;
+	width: 100%;
+}
+
+#close:hover,
+.go:hover,
+#go:hover {
+	background-color: #50c2c9;
+	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+	transform: translateY(-7px);
+}
+
+/* end of modal */
+
+/* Media Queries */
+@media all and (min-width: 800px) {
+	.containers {
+		margin-top: 0;
+	}
+}
+
+@media all and (min-width: 600px) and (min-height: 1024px) and (orientation: portrait) {
+	.infoContainer h4 {
+		font-size: 2.5rem;
+	}
+
+	.infoContainer p {
+		font-size: 1.5rem;
+	}
+
+	.photoContainer {
+		flex-basis: 40%;
+	}
+
+	.announcementContainer {
+		margin-bottom: 5%;
+	}
+
+	.userInfoContainer {
+		margin-bottom: 5%;
+	}
+
+	.attendanceContainer {
+		margin-bottom: 5%;
+	}
+
+	.modal {
+		padding: 0 2rem;
+	}
+
+	.modal-contents {
+		width: 80%;
+	}
+
+	.modal-contents .text {
+		font-size: 2.5rem;
+	}
+
+	#close,
+	.go,
+	#go {
+		font-size: 2.5rem;
+		font-weight: 600;
+	}
+}
+
+@media all and (min-width: 768px) and (min-height: 1024px) and (orientation: portrait) {
+	.modal-contents {
+		margin: 50% auto;
+	}
+}
+
+@media all and (min-width: 990px) and (min-height: 1279px) and (orientation: portrait) {
+	.flexContainers {
+		display: flex;
+		height: 70vh;
+		width: 100%;
+		justify-content: center;
+		padding: 0 3rem;
+	}
+
+	.userInfoContainer {
+		flex-direction: column;
+		justify-content: center;
+		margin-bottom: 5%;
+	}
+
+	.announcementContainer {
+		margin-bottom: 5%;
+	}
+
+	.left {
+		margin: 0 1rem;
+		width: 100%;
+	}
+
+	.right {
+		margin: 0 1rem;
+		width: 100%;
+	}
+
+	.photoContainer {
+		width: 15%;
+		margin: 5% auto 2.5% auto;
+	}
+
+	.photoContainer .photo {
+		width: 100%;
+		text-align: center;
+	}
+
+	.infoContainer {
+		text-align: center;
+	}
+
+	.infoContainer h4 {
+		font-size: 2.8rem;
+	}
+
+	.infoContainer p {
+		font-size: 1.8rem;
+	}
+
+	.announcementContainer {
+		width: 100%;
+	}
+
+	.wrapper {
+		margin: 0 auto;
+		min-height: 39vh;
+	}
+
+	/* Calendar */
+
+	.button-container-calendar button {
+		font-size: 2.5rem;
+	}
+
+	.table-calendar td,
+	.table-calendar th {
+		font-size: 2rem;
+	}
+
+	/* end of calendar */
+
+	.modal-contents {
+		width: 75%;
+	}
+
+	.modal-contents .text {
+		font-size: 2.8rem;
+	}
+}
+
+@media all and (min-width: 1000px) and (min-height: 600px) and (orientation: landscape) {
+	.flexContainers {
+		display: flex;
+		height: 70vh;
+		width: 100%;
+		justify-content: center;
+	}
+
+	.userInfoContainer {
+		flex-direction: column;
+		justify-content: center;
+		margin-bottom: 5%;
+	}
+
+	.announcementContainer {
+		margin-bottom: 5%;
+	}
+
+	.left {
+		margin: 0 1rem;
+		width: 100%;
+	}
+
+	.right {
+		margin: 0 1rem;
+		width: 100%;
+	}
+
+	.photoContainer {
+		width: 10%;
+		margin: 0 auto 2.5% auto;
+	}
+
+	.photoContainer .photo {
+		width: 100%;
+		text-align: center;
+	}
+
+	.infoContainer {
+		text-align: center;
+	}
+
+	.infoContainer h4 {
+		font-size: 2rem;
+	}
+
+	.infoContainer p {
+		font-size: 1.2rem;
+	}
+
+	.announcementContainer {
+		width: 100%;
+	}
+
+	.wrapper {
+		margin: 0 auto;
+		min-height: 39vh;
+	}
+
+	/* Calendar */
+
+	.button-container-calendar button {
+		font-size: 2.5rem;
+	}
+
+	.table-calendar td,
+	.table-calendar th {
+		font-size: 2rem;
+	}
+
+	/* end of calendar */
+
+	.modal-contents {
+		width: 75%;
+	}
+
+	.modal-contents .text {
+		font-size: 2.8rem;
+	}
+
+	.modal-contents {
+		background-color: #fefefe;
+		margin: 20% auto;
+		width: 35%;
+	}
+
+	.modal-contents .sure {
+		font-size: 2rem;
+		width: 100%;
+	}
+
+	.modal-content {
+		width: 120%;
+	}
+
+	.announce {
+		margin: 15% 28%;
+	}
+}

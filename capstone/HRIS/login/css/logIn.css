@@ -1,0 +1,466 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&family=Poppins:wght@200;300;400;700;800;900&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	max-height: 100vh;
+	font-family: "Poppins", sans-serif;
+}
+
+.container {
+	width: inherit;
+	height: 100vh;
+	background-color: #50c2c9;
+	display: flex;
+	align-items: flex-end;
+}
+
+.logInContainer {
+	width: 100vw;
+	height: 80vh;
+	border-top-right-radius: 10%;
+	border-top-left-radius: 10%;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.logoContainer {
+	width: 40%;
+	height: 28%;
+	background-color: white;
+	border-radius: 100%;
+	position: relative;
+	top: -6rem;
+}
+
+.logo {
+	width: 100%;
+	height: 100%;
+	border: 0.5rem solid white;
+	border-radius: 100%;
+}
+
+.logInContainer h3 {
+	font-size: 1.8rem;
+	font-weight: 600;
+	width: 100%;
+	text-align: center;
+	margin-top: 2rem;
+}
+
+.login {
+	height: 50%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 4rem;
+}
+
+.inputform {
+	margin-top: 3rem;
+	margin-bottom: 6rem;
+}
+
+.input {
+	padding: 0.7rem 1rem;
+	font-size: 1rem;
+	font-family: "Inter", sans-serif;
+	width: 100%;
+	margin-top: 0.7rem;
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	background-color: #00000026;
+}
+
+.input::placeholder {
+	font-size: 0.9rem;
+}
+
+.btn {
+	font-size: 1.2rem;
+	font-weight: 600;
+	padding: 1.2rem;
+	background-color: #50c2c9;
+	border-radius: 20px;
+	width: 70%;
+	text-align: center;
+	color: #000;
+	margin: 0 auto;
+	box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	margin-top: 4rem;
+}
+
+.btn:hover {
+	background-color: #50c2c9;
+	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+	transform: translateY(-7px);
+}
+
+/* For modal */
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	max-height: 100vh;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 70% auto;
+	border-radius: 10%;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 90%;
+	padding: 1rem;
+
+	animation-name: modalAnim;
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in-out;
+}
+
+@keyframes modalAnim {
+	from {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.modal-content .text {
+	margin-top: 2.5rem;
+	text-align: center;
+}
+
+.buttonContainer {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.linkContainer {
+	width: 50%;
+	height: 15vh;
+	margin: 0.25rem auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#close,
+#go {
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 0.8rem 0.5rem;
+	background-color: #50c2c9;
+	border-radius: 10px;
+	width: 100%;
+	text-align: center;
+	color: #000;
+	margin: 1.5rem auto;
+	box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	border: none;
+}
+
+#go {
+	text-decoration: none;
+	width: 100%;
+}
+
+#close:hover,
+#go:hover {
+	background-color: #50c2c9;
+	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+	transform: translateY(-7px);
+}
+
+/* end of modal */
+
+@media all and (min-width: 375px) and (min-height: 736px) and (orientation: portrait) {
+	.logoContainer {
+		width: 40%;
+		height: 26%;
+		top: -22%;
+	}
+
+	.inputform {
+		margin: 5% 0 30% 0;
+	}
+
+	.login {
+		margin-bottom: 0;
+	}
+
+	.btn {
+		font-weight: 900;
+	}
+
+	#close,
+	#go {
+		font-size: 1.2rem;
+		font-weight: 600;
+	}
+
+	.modal-content {
+		padding: 1rem 3rem;
+	}
+
+	.linkContainer {
+		padding: unset;
+		height: 13vh;
+	}
+
+	.linkContainer #go {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+@media all and (min-width: 400px) and (min-height: 850px) and (orientation: portrait) {
+	.logoContainer {
+		width: 40%;
+		height: 26%;
+		top: -22%;
+	}
+
+	.login {
+		margin-bottom: 4rem;
+	}
+
+	.logInContainer h3 {
+		font-size: 2rem;
+		font-weight: 600;
+	}
+
+	.btn {
+		margin-top: 8rem;
+	}
+
+	.linkContainer {
+		padding: unset;
+		height: 15vh;
+	}
+
+	.input {
+		padding: 1rem;
+	}
+
+	.modal {
+		padding: 1rem;
+	}
+
+	.modal-content {
+		width: 100%;
+		font-size: 1.2rem;
+		padding: 2rem;
+	}
+
+	.inputform {
+		margin: 18% 0 10% 0;
+	}
+}
+
+@media all and (min-width: 400px) and (min-height: 890px) and (orientation: portrait) {
+	.linkContainer {
+		padding: unset;
+		height: 12vh;
+	}
+}
+
+@media all and (min-width: 600px) and (min-height: 1000px) and (orientation: portrait) {
+	.input {
+		font-size: 1.8rem;
+		width: 80%;
+		margin: 0.75rem 12%;
+		padding: 1rem;
+	}
+
+	.input::placeholder {
+		font-size: 1.4rem;
+	}
+
+	.logInContainer h3 {
+		font-size: 3.5rem;
+		font-weight: 900;
+	}
+
+	.logoContainer {
+		top: -22%;
+	}
+
+	.btn {
+		font-size: 2rem;
+	}
+
+	/* modal */
+
+	.modal-content {
+		font-size: 1.5rem;
+		padding: 2.5rem;
+		width: 90%;
+	}
+
+	.modal {
+		height: 100vh;
+	}
+
+	#close,
+	#go {
+		font-size: 1.8rem;
+		font-weight: 600;
+	}
+
+	.linkContainer {
+		padding: unset;
+		height: 10vh;
+	}
+
+	.linkContainer #go {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+@media all and (min-width: 768px) and (min-height: 1024px) and (orientation: portrait) {
+	.modal-content {
+		margin: 50% auto;
+		width: 75%;
+	}
+}
+
+@media all and (min-width: 820px) and (min-height: 1180px) and (orientation: portrait) {
+	.modal-content {
+		width: 75%;
+		font-size: 1.8rem;
+	}
+
+	.btn {
+		margin-top: 0;
+		width: 50%;
+	}
+
+	.inputform {
+		margin-top: 0;
+	}
+
+	.login {
+		justify-content: flex-start;
+		margin-bottom: 0;
+	}
+
+	.logoContainer {
+		top: -24%;
+	}
+}
+
+@media all and (min-width: 991px) and (min-height: 1280px) and (orientation: portrait) {
+	.logoContainer {
+		height: 28%;
+	}
+
+	.modal-content {
+		width: 75%;
+		font-size: 2.5rem;
+	}
+}
+
+@media all and (min-width: 1000px) and (min-height: 600px) and (orientation: landscape) {
+	.logInContainer {
+		width: 35vw;
+		height: 60vh;
+		margin: 0 auto;
+		border-radius: 20px;
+	}
+	.container {
+		align-items: center;
+		justify-content: center;
+	}
+
+	.logoContainer {
+		width: 40%;
+		height: 40%;
+		top: -3rem;
+	}
+
+	.logInContainer h3 {
+		margin-top: unset;
+	}
+
+	.login {
+		height: 50%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		margin-bottom: 4rem;
+	}
+
+	.inputform {
+		margin-bottom: unset;
+	}
+
+	.btn {
+		font-size: 1.2rem;
+		padding: 1.2rem;
+		border-radius: 8px;
+		width: 60%;
+		margin-top: 2rem;
+	}
+
+	.modal-content {
+		background-color: #fefefe;
+		margin: 20% auto;
+		border-radius: 10%;
+		width: 35%;
+		padding: 0 2rem;
+	}
+}
+
+@media all and (min-width: 1000px) and (min-height: 760px) and (orientation: landscape) {
+	.logInContainer {
+		width: 35vw;
+		height: 50vh;
+	}
+
+	.modal-content {
+		margin: 32% auto;
+	}
+
+	#go {
+		padding: 0.5rem;
+	}
+}
+
+@media all and (min-width: 1250px) and (min-height: 800px) and (orientation: landscape) {
+	.modal-content {
+		margin: 25% auto;
+	}
+}
