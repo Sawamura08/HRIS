@@ -37,7 +37,7 @@ ob_start();
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="attendanceTracker.css">
     <link rel="shortcut icon" href="RGEM.png" type="image/x-icon">
-    <title>Leave Input Management</title>
+    <title>Attendance Tracker</title>
 </head>
 
 <body>
@@ -128,82 +128,177 @@ ob_start();
                     <tr>
                         <th>Employee Name</th>
                         <th>Profile</th>
+                        <th>Department</th>
                         <th>Status</th>
                         <img src="" alt="">
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    //  query for the table
-                    $sql = "SELECT firstName, lastName,middleName,suffixName, picture,idNumber, d.departmentName,s.shiftIn,s.shiftOut
+
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        $sql = "SELECT firstName, lastName,middleName,suffixName, picture,idNumber, d.departmentName,s.shiftIn,s.shiftOut
                         FROM hr_employeeinfo AS e
                         LEFT JOIN hr_department AS d ON e.departmentId = d.departmentId
                         RIGHT JOIN hr_shiftsched AS s ON e.shiftId = s.shiftId WHERE STATUS = 1";
-                    $query = $connectionString->query($sql);
-                    // this condition will check if there is affected values and get it
-                    if ($query && $query->num_rows > 0) {
-                        while ($row = $query->fetch_assoc()) {
-                            $idNumber = $row['idNumber'];
-                            $firstName = $row['firstName'];
-                            $lastName = $row['lastName'];
-                            $middleName = $row['middleName'];
-                            $suffixName = $row['suffixName'];
-                            $profile = $row['picture'] ? $row['picture'] : 'noProfile.jpg';
-                            $shiftIn = $row['shiftIn'];
-                            $shiftOut = $row['shiftOut'];
-                            $link = "../img/";
-                            $link .= $profile;
-                            $name = $lastName . ", " . $firstName . " " . $middleName . " " . $suffixName;
+
+                        $searchKeys = isset($_POST['search']) ? $_POST['search'] : "";
+
+                        $searchKeys = explode(" ", $searchKeys);
+                        foreach ($searchKeys as $key) {
+                            $addSql = " AND (idNumber LIKE '%" . $key . "%' OR firstName LIKE '%" . $key . "%' OR lastName LIKE '%" . $key . "%' OR middleName LIKE '%" . $key . "%' OR suffixName LIKE '%" . $key . "%')";
+
+                            $sql .= $addSql;
+                        }
+
+                        $query = $connectionString->query($sql);
+
+                        // this condition will check if there is affected values and get it
+                        if ($query && $query->num_rows > 0) {
+                            while ($row = $query->fetch_assoc()) {
+                                $idNumber = $row['idNumber'];
+                                $firstName = $row['firstName'];
+                                $lastName = $row['lastName'];
+                                $middleName = $row['middleName'];
+                                $suffixName = $row['suffixName'];
+                                $departmentName = $row['departmentName'];
+                                $profile = $row['picture'] ? $row['picture'] : 'noProfile.jpg';
+                                $shiftIn = $row['shiftIn'];
+                                $shiftOut = $row['shiftOut'];
+                                $link = "../img/";
+                                $link .= $profile;
+                                $name = $lastName . ", " . $firstName . " " . $middleName . " " . $suffixName;
 
 
-                            $sql2 = "SELECT * FROM hr_dtr WHERE idNumber = $idNumber AND dateToday = CURDATE()";
-                            $query2 = $connectionString->query($sql2);
-                            $timeIn = "";
-                            $timeOut = "";
-                            $status = "";
-                            if ($query2 && $query2->num_rows > 0) {
-                                while ($data = $query2->fetch_assoc()) {
-                                    $timeIn = $data['timeIn'];
-                                    $timeOut = $data['timeOut'];
-                                    $time = strtotime($timeIn);
-                                    $shift = strtotime($shiftIn);
+                                $sql2 = "SELECT * FROM hr_dtr WHERE idNumber = $idNumber AND dateToday = CURDATE()";
+                                $query2 = $connectionString->query($sql2);
+                                $timeIn = "";
+                                $timeOut = "";
+                                $status = "";
+                                if ($query2 && $query2->num_rows > 0) {
+                                    while ($data = $query2->fetch_assoc()) {
+                                        $timeIn = $data['timeIn'];
+                                        $timeOut = $data['timeOut'];
+                                        $time = strtotime($timeIn);
+                                        $shift = strtotime($shiftIn);
 
-                                    // will check the user is late in hr format
-                                    if ($time > $shift) {
-                                        if ($timeOut) {
-                                            $status = "OUT";
-                                            $time = date('H:i:s', strtotime($timeOut));
+                                        // will check the user is late in hr format
+                                        if ($time > $shift) {
+                                            if ($timeOut) {
+                                                $status = "OUT";
+                                                $time = date('H:i:s', strtotime($timeOut));
+                                            } else {
+                                                $status = "Late";
+                                                $time = date('H:i:s', strtotime($timeIn));
+                                            }
+                                            // will check the user is late in minutes format
+                                        } else if (date('H:i', $time) > date('H:i', $shift)) {
+                                            if ($timeOut) {
+                                                $status = "OUT";
+                                                $time = date('H:i:s', strtotime($timeOut));
+                                            } else {
+                                                $status = "Late";
+                                                $time = date('H:i:s', strtotime($timeIn));
+                                            }
                                         } else {
-                                            $status = "Late";
+                                            $status = "On Time";
                                             $time = date('H:i:s', strtotime($timeIn));
                                         }
-                                        // will check the user is late in minutes format
-                                    } else if (date('H:i', $time) > date('H:i', $shift)) {
-                                        if ($timeOut) {
-                                            $status = "OUT";
-                                            $time = date('H:i:s', strtotime($timeOut));
-                                        } else {
-                                            $status = "Late";
-                                            $time = date('H:i:s', strtotime($timeIn));
-                                        }
-                                    } else {
-                                        $status = "On Time";
-                                        $time = date('H:i:s', strtotime($timeIn));
                                     }
+                                } else {
+
+                                    $sqlLeave = "SELECT";
+                                    $status = "Absent";
+                                    $time = "";
                                 }
-                            } else {
-                                $status = "Absent";
-                                $time = "";
+
+
+
+
+                                echo "<tr> 
+                                <td  class='align-middle'>$name</td>
+                                <td><img src='$link' alt='' class='profile'></td>
+                                <td  class='align-middle'>$departmentName</td>
+                                <td  class='align-middle'><span class = 'status'>$status </span><p style='margin-top:0.5rem;'>$time</p></td>
+                            </tr>";
                             }
+                        }
+                    } else {
+                        //  query for the table
+                        $sql = "SELECT firstName, lastName,middleName,suffixName, picture,idNumber, d.departmentName,s.shiftIn,s.shiftOut
+                    FROM hr_employeeinfo AS e
+                    LEFT JOIN hr_department AS d ON e.departmentId = d.departmentId
+                    RIGHT JOIN hr_shiftsched AS s ON e.shiftId = s.shiftId WHERE STATUS = 1";
+                        $query = $connectionString->query($sql);
+                        // this condition will check if there is affected values and get it
+                        if ($query && $query->num_rows > 0) {
+                            while ($row = $query->fetch_assoc()) {
+                                $idNumber = $row['idNumber'];
+                                $firstName = $row['firstName'];
+                                $lastName = $row['lastName'];
+                                $middleName = $row['middleName'];
+                                $suffixName = $row['suffixName'];
+                                $departmentName = $row['departmentName'];
+                                $profile = $row['picture'] ? $row['picture'] : 'noProfile.jpg';
+                                $shiftIn = $row['shiftIn'];
+                                $shiftOut = $row['shiftOut'];
+                                $link = "../img/";
+                                $link .= $profile;
+                                $name = $lastName . ", " . $firstName . " " . $middleName . " " . $suffixName;
+
+
+                                $sql2 = "SELECT * FROM hr_dtr WHERE idNumber = $idNumber AND dateToday = CURDATE()";
+                                $query2 = $connectionString->query($sql2);
+                                $timeIn = "";
+                                $timeOut = "";
+                                $status = "";
+                                if ($query2 && $query2->num_rows > 0) {
+                                    while ($data = $query2->fetch_assoc()) {
+                                        $timeIn = $data['timeIn'];
+                                        $timeOut = $data['timeOut'];
+                                        $time = strtotime($timeIn);
+                                        $shift = strtotime($shiftIn);
+
+                                        // will check the user is late in hr format
+                                        if ($time > $shift) {
+                                            if ($timeOut) {
+                                                $status = "OUT";
+                                                $time = date('H:i:s', strtotime($timeOut));
+                                            } else {
+                                                $status = "Late";
+                                                $time = date('H:i:s', strtotime($timeIn));
+                                            }
+                                            // will check the user is late in minutes format
+                                        } else if (date('H:i', $time) > date('H:i', $shift)) {
+                                            if ($timeOut) {
+                                                $status = "OUT";
+                                                $time = date('H:i:s', strtotime($timeOut));
+                                            } else {
+                                                $status = "Late";
+                                                $time = date('H:i:s', strtotime($timeIn));
+                                            }
+                                        } else {
+                                            $status = "On Time";
+                                            $time = date('H:i:s', strtotime($timeIn));
+                                        }
+                                    }
+                                } else {
+
+                                    $sqlLeave = "SELECT";
+                                    $status = "Absent";
+                                    $time = "";
+                                }
 
 
 
 
-                            echo "<tr> 
-                                    <td  class='align-middle'>$name</td>
-                                    <td><img src='$link' alt='' class='profile'></td>
-                                    <td  class='align-middle'><span class = 'status'>$status </span><p style='margin-top:0.5rem;'>$time</p></td>
-                                </tr>";
+                                echo "<tr> 
+                                <td  class='align-middle'>$name</td>
+                                <td><img src='$link' alt='' class='profile'></td>
+                                <td  class='align-middle'>$departmentName</td>
+                                <td  class='align-middle'><span class = 'status'>$status </span><p style='margin-top:0.5rem;'>$time</p></td>
+                            </tr>";
+                            }
                         }
                     }
 

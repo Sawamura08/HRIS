@@ -211,3 +211,53 @@ body {
 }
 
 /* end of table */
+
+@media all and (min-width: 800px) and (min-height: 1000px) and (orientation: portrait) {
+	.adminHeaderContainer {
+		margin-top: 0;
+	}
+}
+
+@media all and (min-width: 900px) and (min-height: 1200px) and (orientation: portrait) {
+	.adminHeaderContainer {
+		margin-top: 0;
+	}
+
+	.searchContainer {
+		width: 45%;
+		display: flex;
+		margin: 2rem;
+	}
+
+	.filterContainer {
+		width: 50%;
+		margin: 2rem auto;
+	}
+
+	.back {
+		width: 5%;
+		left: -38%;
+	}
+}
+
+@media all and (min-width: 1000px) and (min-height: 600px) and (orientation: landscape) {
+	.adminHeaderContainer {
+		margin-top: 0;
+	}
+
+	.searchContainer {
+		width: 45%;
+		display: flex;
+		margin: 2rem;
+	}
+
+	.filterContainer {
+		width: 50%;
+		margin: 2rem auto;
+	}
+
+	.back {
+		width: 5%;
+		left: -38%;
+	}
+}

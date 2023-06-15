@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&family=Pacifico&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	max-width: 100vw;
+	max-height: 100vh;
+	font-family: "Inter", sans-serif;
+	overflow-x: hidden;
+}
+
+.containers {
+	width: 100vw;
+	min-height: 80vh;
+	z-index: -1;
+}
+
+.adminHeaderContainer {
+	width: 100%;
+	padding: 1rem;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	background-color: #bfe1d7;
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+.back {
+	position: relative;
+	left: -37%;
+	padding: 1rem;
+	background-color: #50c2c9;
+	color: white;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 5%;
+	cursor: pointer;
+}
+
+.adminHeaderContainer .title {
+	text-align: center;
+	margin-top: 0.5rem;
+	line-height: 3.5rem;
+	font-size: 1.8rem;
+	font-weight: 600;
+}
