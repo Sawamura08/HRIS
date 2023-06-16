@@ -210,9 +210,19 @@ body {
 	height: 5rem;
 }
 
+.noData {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.noData > img {
+	width: 60%;
+}
 /* end of table */
 
-@media all and (min-width: 800px) and (min-height: 1000px) and (orientation: portrait) {
+@media all and (min-width: 800px) and (min-height: 900px) and (orientation: portrait) {
 	.adminHeaderContainer {
 		margin-top: 0;
 	}
@@ -257,7 +267,18 @@ body {
 	}
 
 	.back {
-		width: 5%;
-		left: -38%;
+		width: 4%;
+		left: -40%;
+	}
+
+	.noData {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.noData > img {
+		width: 30%;
 	}
 }
