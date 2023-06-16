@@ -152,7 +152,7 @@ ob_start();
                     echo '   <!-- tables -->
                             <table class="table">
                                 <thead>
-                                    <tr>
+                                    <tr><th>Id Number</th>
                                         <th>Employee Name</th>
                                         <th>Profile</th>
                                         <th>Department</th>
@@ -214,10 +214,10 @@ ob_start();
                         } else {
 
                             $sqlLeave = "SELECT COUNT(*) AS leaveCount FROM hr_leavehistory WHERE idNumber = $idNumber AND CURDATE() BETWEEN startDate AND endDate";
-                            $query = $connectionString->$query($sqlLeave);
+                            $queryLeave = $connectionString->query($sqlLeave);
 
-                            if ($query && $query->num_rows > 0) {
-                                $row = $query->fetch_assoc();
+                            if ($queryLeave && $queryLeave->num_rows > 0) {
+                                $row = $queryLeave->fetch_assoc();
                                 $leaveCount = $row['leaveCount'];
                                 if ($leaveCount > 0) {
                                     $status = "Leave";
@@ -233,6 +233,7 @@ ob_start();
 
 
                         echo "<tr> 
+                                <td  class='align-middle'>$idNumber</td>
                                 <td  class='align-middle'>$name</td>
                                 <td><img src='$link' alt='' class='profile'></td>
                                 <td  class='align-middle'>$departmentName</td>
@@ -255,6 +256,7 @@ ob_start();
                     <table class="table">
                         <thead>
                             <tr>
+                                <th>Id Number</th>
                                 <th>Employee Name</th>
                                 <th>Profile</th>
                                 <th>Department</th>
@@ -317,6 +319,7 @@ ob_start();
 
                             $sqlLeave = "SELECT COUNT(*) AS leaveCount FROM hr_leavehistory WHERE idNumber = $idNumber AND CURDATE() BETWEEN startDate AND endDate";
                             $queryLeave = $connectionString->query($sqlLeave);
+
                             if ($queryLeave && $queryLeave->num_rows > 0) {
                                 $row = $queryLeave->fetch_assoc();
                                 $leaveCount = $row['leaveCount'];
@@ -334,10 +337,11 @@ ob_start();
 
 
                         echo "<tr> 
+                                <td  class='align-middle'>$idNumber</td>
                                 <td  class='align-middle'>$name</td>
                                 <td><img src='$link' alt='' class='profile'></td>
                                 <td  class='align-middle'>$departmentName</td>
-                                <td  class='align-middle'><span class = 'status'>$status </span><p style='margin-top:0.5rem;'>$time</p></td>
+                                <td  class='align-middle'><span class = 'status'>$status</span><p style='margin-top:0.5rem;'>$time</p></td>
                             </tr>";
                     }
                 }
@@ -368,7 +372,7 @@ ob_start();
             leaveStatus.style.backgroundColor = '#f4a261';
         } else if (status == "On Time") {
             leaveStatus.style.backgroundColor = '#80ed99';
-        } else if ($status == "Leave") {
+        } else if (status == "Leave") {
             leaveStatus.style.backgroundColor = '#fb8500';
         } else if (status == "Absent") {
             leaveStatus.style.backgroundColor = '#e63946';

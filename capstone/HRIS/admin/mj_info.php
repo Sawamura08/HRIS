@@ -1,8 +1,7 @@
 <?php
 
 include('../connection.php'); // to connect to database
-session_start();
-$idNumber = $_SESSION['idNumber'];
+$idNumber = $_GET['idNumber'];
 ?>
 
 <?php
@@ -50,7 +49,8 @@ if ($query && $query->num_rows > 0) {
     $pagibigNumber = $row['pagibigNumber'];
     $tinNumber = $row['tinNumber'];
 }
-
+session_start();
+$idNumber = $_SESSION['idNumber'];
 ?>
 
 <!DOCTYPE html>
@@ -63,17 +63,11 @@ if ($query && $query->num_rows > 0) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
-        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -131,9 +125,7 @@ if ($query && $query->num_rows > 0) {
         <div class="employeeProfile">
             <img src="../img/<?php echo $picture; ?>" alt="">
             <p>Employee Number : <?php echo $idNumber ?></p>
-            <button class="edit"
-                onclick="window.location.href='mj_updateInfo.php?idNumber=<?php echo $idNumber ?>'">Update<i
-                    class="fa-solid fa-pen-nib"></i></button>
+            <button class="edit" onclick="window.location.href='mj_updateInfo.php?idNumber=<?php echo $idNumber ?>'">Update<i class="fa-solid fa-pen-nib"></i></button>
         </div>
 
         <div class="employeeInfo">
@@ -142,23 +134,19 @@ if ($query && $query->num_rows > 0) {
                 <div class="fullName">
                     <div class="name">
                         <label for="">First Name</label>
-                        <input type="text" name="firstName" id="" class="textbox" disabled
-                            value="<?php echo $firstName ?>">
+                        <input type="text" name="firstName" id="" class="textbox" disabled value="<?php echo $firstName ?>">
                     </div>
                     <div class="name">
                         <label for="">Last Name</label>
-                        <input type="text" name="lastName" id="" class="textbox" disabled
-                            value="<?php echo $lastName ?>">
+                        <input type="text" name="lastName" id="" class="textbox" disabled value="<?php echo $lastName ?>">
                     </div>
                     <div class="name">
                         <label for="">Middle Name</label>
-                        <input type="text" name="middleName" id="" class="textbox" disabled
-                            value="<?php echo $middleName ?>">
+                        <input type="text" name="middleName" id="" class="textbox" disabled value="<?php echo $middleName ?>">
                     </div>
                     <div class="name">
                         <label for="">Suffix Name</label>
-                        <input type="text" name="suffixName" id="" class="textbox" disabled
-                            value="<?php echo $suffixName ?>">
+                        <input type="text" name="suffixName" id="" class="textbox" disabled value="<?php echo $suffixName ?>">
                     </div>
                     <div class="name">
                         <label for="">Gender</label>
@@ -180,13 +168,11 @@ if ($query && $query->num_rows > 0) {
                     </div>
                     <div class="name">
                         <label for="">Birthdate</label>
-                        <input type="date" name="birthDate" id="" class="textbox" disabled
-                            value="<?php echo $birthDate ?>">
+                        <input type="date" name="birthDate" id="" class="textbox" disabled value="<?php echo $birthDate ?>">
                     </div>
                     <div class="name">
                         <label for="">Place of Birth</label>
-                        <input type="text" name="birthPlace" id="" class="textbox" disabled
-                            value="<?php echo $birthPlace ?>">
+                        <input type="text" name="birthPlace" id="" class="textbox" disabled value="<?php echo $birthPlace ?>">
                     </div>
                     <div class="name">
                         <label for="">Civil Status</label>
@@ -220,13 +206,11 @@ if ($query && $query->num_rows > 0) {
                 <div class="fullAddress">
                     <div class="address">
                         <label for="">Permanent Address</label>
-                        <input type="text" name="permanentAddress" id="" class="textbox" disabled
-                            value="<?php echo $permanentAddress ?>">
+                        <input type="text" name="permanentAddress" id="" class="textbox" disabled value="<?php echo $permanentAddress ?>">
                     </div>
                     <div class="address">
                         <label for="">Present Address</label>
-                        <input type="text" name="presentAddress" id="" class="textbox" disabled
-                            value="<?php echo $presentAddress ?>">
+                        <input type="text" name="presentAddress" id="" class="textbox" disabled value="<?php echo $presentAddress ?>">
                     </div>
                 </div>
             </div>
@@ -236,18 +220,15 @@ if ($query && $query->num_rows > 0) {
                 <div class="fullName">
                     <div class="name">
                         <label for="">Nationality</label>
-                        <input type="text" name="nationality" id="" class="textbox" disabled
-                            value="<?php echo $nationality ?>">
+                        <input type="text" name="nationality" id="" class="textbox" disabled value="<?php echo $nationality ?>">
                     </div>
                     <div class="name">
                         <label for="">Telophone Number</label>
-                        <input type="text" name="telephone" id="" class="textbox" disabled
-                            value="<?php echo $telephone ?>">
+                        <input type="text" name="telephone" id="" class="textbox" disabled value="<?php echo $telephone ?>">
                     </div>
                     <div class="name">
                         <label for="">Contact Number</label>
-                        <input type="text" name="contactNumber" id="" class="textbox" disabled
-                            value="<?php echo $contactNumber ?>">
+                        <input type="text" name="contactNumber" id="" class="textbox" disabled value="<?php echo $contactNumber ?>">
                     </div>
                     <div class="name">
                         <label for="">Email Address</label>
@@ -255,13 +236,11 @@ if ($query && $query->num_rows > 0) {
                     </div>
                     <div class="name">
                         <label for="">Emergency Contact Person</label>
-                        <input type="text" name="contactPerson" id="" class="textbox" disabled
-                            value="<?php echo $contactPerson ?>">
+                        <input type="text" name="contactPerson" id="" class="textbox" disabled value="<?php echo $contactPerson ?>">
                     </div>
                     <div class="name">
                         <label for="">Emergency Contact Number</label>
-                        <input type="number" name="contactPersonNumber" id="" class="textbox" disabled
-                            value="<?php echo $contactPersonNumber ?>">
+                        <input type="number" name="contactPersonNumber" id="" class="textbox" disabled value="<?php echo $contactPersonNumber ?>">
                     </div>
                 </div>
             </div>
@@ -272,13 +251,11 @@ if ($query && $query->num_rows > 0) {
                 <div class="fullAddress">
                     <div class="address">
                         <label for="">UserName</label>
-                        <input type="text" name="userName" id="" class="textbox" value="<?php echo $userName ?>"
-                            disabled>
+                        <input type="text" name="userName" id="" class="textbox" value="<?php echo $userName ?>" disabled>
                     </div>
                     <div class="address">
                         <label for="">Password</label>
-                        <input type="text" name="password" id="" class="textbox" value="<?php echo $password ?>"
-                            disabled>
+                        <input type="text" name="password" id="" class="textbox" value="<?php echo $password ?>" disabled>
                     </div>
                 </div>
             </div>
@@ -288,8 +265,7 @@ if ($query && $query->num_rows > 0) {
                 <div class="fullName">
                     <div class="name">
                         <label for="">ID Number</label>
-                        <input type="text" name="idNumber" id="" class="textbox" value="<?php echo $idNumber ?>"
-                            disabled>
+                        <input type="text" name="idNumber" id="" class="textbox" value="<?php echo $idNumber ?>" disabled>
                     </div>
                     <div class="name">
                         <?php
@@ -303,13 +279,11 @@ if ($query && $query->num_rows > 0) {
                     </div>
                     <div class="name">
                         <label for="">Hired Date</label>
-                        <input type="date" name="hiredDate" id="" class="textbox" disabled
-                            value="<?php echo $hiredDate ?>">
+                        <input type="date" name="hiredDate" id="" class="textbox" disabled value="<?php echo $hiredDate ?>">
                     </div>
                     <div class="name">
                         <label for="">Resign Date</label>
-                        <input type="date" name="resignDate" id="" class="textbox" disabled
-                            value="<?php echo $resignDate ?>">
+                        <input type="date" name="resignDate" id="" class="textbox" disabled value="<?php echo $resignDate ?>">
                     </div>
                     <div class="name">
                         <label for="">Default Shift</label>
@@ -369,28 +343,23 @@ if ($query && $query->num_rows > 0) {
                     </div>
                     <div class="name">
                         <label for="">Position</label>
-                        <input type="text" name="position" id="" class="textbox" disabled
-                            value="<?php echo $position ?>">
+                        <input type="text" name="position" id="" class="textbox" disabled value="<?php echo $position ?>">
                     </div>
                     <div class="name">
                         <label for="">SSS Number</label>
-                        <input type="text" name="sssNumber" id="" class="textbox" disabled
-                            value="<?php echo $sssNumber ?>">
+                        <input type="text" name="sssNumber" id="" class="textbox" disabled value="<?php echo $sssNumber ?>">
                     </div>
                     <div class="name">
                         <label for="">PhilHealth Number</label>
-                        <input type="text" name="philHealthNumber" id="" class="textbox" disabled
-                            value="<?php echo $philHealthNumber ?>">
+                        <input type="text" name="philHealthNumber" id="" class="textbox" disabled value="<?php echo $philHealthNumber ?>">
                     </div>
                     <div class="name">
                         <label for="">Pagibig Number</label>
-                        <input type="text" name="pagibigNumber" id="" class="textbox" disabled
-                            value="<?php echo $pagibigNumber ?>">
+                        <input type="text" name="pagibigNumber" id="" class="textbox" disabled value="<?php echo $pagibigNumber ?>">
                     </div>
                     <div class="name">
                         <label for="">TIN Number</label>
-                        <input type="text" name="tinNumber" id="" class="textbox" disabled
-                            value="<?php echo $tinNumber ?>">
+                        <input type="text" name="tinNumber" id="" class="textbox" disabled value="<?php echo $tinNumber ?>">
                     </div>
                 </div>
             </div>

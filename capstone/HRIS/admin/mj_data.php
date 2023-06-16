@@ -103,6 +103,7 @@ ob_start();
         <p class="title">Employee Data Management</p>
     </div>
 
+
     <div class="containers">
         <div class="filter">
             <div class="searchContainer">
@@ -116,6 +117,7 @@ ob_start();
                 <button class="refresh" onclick="window.location.href ='mj_data.php'"><i
                         class="fa-solid fa-arrows-rotate"></i></button>
             </div>
+
             <div class="filterContainer">
                 <div class="dropDown">
                     <div class="filterLogo">
@@ -200,6 +202,8 @@ ob_start();
                 
                 
                 ';
+            } else {
+                echo '<div class="noData"><img src="../admin//noData.jpg" alt=""></div>';
             }
         } else {
 

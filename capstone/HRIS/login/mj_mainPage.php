@@ -58,7 +58,7 @@ if ($query->num_rows > 0) {
 
     <?php
 
-    $link = "http://localhost/capstone/HRIS/img/";
+    $link = "http://localhost/capstone/HRIS/capstone/HRIS/img/";
     if ($picture == "") {
         $picture = "noProfile.jpg";
     }
@@ -252,7 +252,7 @@ if ($query->num_rows > 0) {
                                                 $sqlUpdateLate = "UPDATE hr_dtr SET late = 1 WHERE idNumber = " . $idNumber . " AND dateToday = CURRENT_DATE()";
                                                 $queryUpdateLate = $connectionString->query($sqlUpdateLate);
                                                 if ($queryUpdateLate && $queryUpdateLate > 0) {
-                                                    header("location: http://localhost/capstone/HRIS/attendance/mj_attendance.php");
+                                                    header("location: http://localhost/capstone/HRIS/capstone/HRIS/attendance/mj_attendance.php");
                                                 } else {
                                                     echo "Error";
                                                 }
@@ -432,7 +432,7 @@ $("#go").click(function() {
         success: function(response) {
             // Redirect to the welcome page with the idNumber as a query parameter
             window.location.href =
-                "http://localhost/capstone/HRIS/attendance/mj_attendance.php";
+                "http://localhost/capstone/HRIS/capstone/HRIS/attendance/mj_attendance.php";
         },
         error: function(xhr, status, error) {
             alert("Error: " + error);
