@@ -15,17 +15,11 @@ $idNumber = $_SESSION['idNumber'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
-        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -71,7 +65,7 @@ $idNumber = $_SESSION['idNumber'];
     ?>
     <!-- leave title -->
     <div class="leaveHeaderContainer">
-        <p class="title">Admin</p>
+        <p class="title">Leave Input Software</p>
     </div>
 
 
@@ -103,8 +97,7 @@ $idNumber = $_SESSION['idNumber'];
                 <div class="date">
                     <div class="dateDuration">
                         <label for="startDate">Start Date</label>
-                        <input type="date" name="leaveStart" id="leaveType" class="selectType" form="request"
-                            placeholder="Start Date" required>
+                        <input type="date" name="leaveStart" id="leaveType" class="selectType" form="request" placeholder="Start Date" required>
                     </div>
                     <div class="dateDuration">
                         <label for="endDate">End Date</label>
@@ -113,8 +106,7 @@ $idNumber = $_SESSION['idNumber'];
                 </div>
                 <div class="description">
                     <label for="reason">Description</label>
-                    <textarea name="reason" id="" cols="30" rows="5" form="request" class="textarea"
-                        placeholder="Type description here..." required></textarea>
+                    <textarea name="reason" id="" cols="30" rows="5" form="request" class="textarea" placeholder="Type description here..." required></textarea>
                 </div>
                 <div class="submitButton">
                     <input type="submit" form="request" value="Submit" name="request" class="submit">
@@ -222,16 +214,16 @@ $idNumber = $_SESSION['idNumber'];
                             $leaveStatus = $row['status'];
 
                     ?>
-                    <div class="leaveHistory">
-                        <div class="leaveDetailsContainer">
-                            <div class="leaveDetails">
-                                <h5><?php echo $leaveType ?></h5>
-                                <p><?php echo $requestType . " | " . $formattedDate; ?></p>
-                            </div>
-                            <div class="leaveStatus">
-                                <span class="status">
+                            <div class="leaveHistory">
+                                <div class="leaveDetailsContainer">
+                                    <div class="leaveDetails">
+                                        <h5><?php echo $leaveType ?></h5>
+                                        <p><?php echo $requestType . " | " . $formattedDate; ?></p>
+                                    </div>
+                                    <div class="leaveStatus">
+                                        <span class="status">
 
-                                    <?php
+                                            <?php
 
                                             if ($leaveStatus == 0) {
                                                 echo "Pending";
@@ -243,11 +235,11 @@ $idNumber = $_SESSION['idNumber'];
 
                                             ?>
 
-                                </span>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- end of leave history -->
+                            <!-- end of leave history -->
                     <?php
 
                         }
@@ -267,50 +259,50 @@ $idNumber = $_SESSION['idNumber'];
 </html>
 
 <script>
-$(document).ready(function() {
-    // Listen for form submission
-    $('#request').submit(function(event) {
-        event.preventDefault(); // Prevent default form submission
+    $(document).ready(function() {
+        // Listen for form submission
+        $('#request').submit(function(event) {
+            event.preventDefault(); // Prevent default form submission
 
-        // Get form data
-        var formData = $(this).serialize();
+            // Get form data
+            var formData = $(this).serialize();
 
-        // Make AJAX request
-        $.ajax({
-            url: 'mj_leaveAjax.php', // Replace with the URL where you want to submit the form
-            type: 'POST', // Change to 'POST' if needed
-            data: formData,
-            success: function(response) {
-                // Handle the server response if needed
-                console.log('Server response:', response);
-                // Optionally, you can update a specific element on the page with the response
-                window.location.href = "mj_leave.php"
-            },
-            error: function(error) {
-                // Handle any errors that occur during the AJAX request
-                console.error('Error submitting form:', error);
-                // Optionally, you can display an error message or perform other actions
-            }
+            // Make AJAX request
+            $.ajax({
+                url: 'mj_leaveAjax.php', // Replace with the URL where you want to submit the form
+                type: 'POST', // Change to 'POST' if needed
+                data: formData,
+                success: function(response) {
+                    // Handle the server response if needed
+                    console.log('Server response:', response);
+                    // Optionally, you can update a specific element on the page with the response
+                    window.location.href = "mj_leave.php"
+                },
+                error: function(error) {
+                    // Handle any errors that occur during the AJAX request
+                    console.error('Error submitting form:', error);
+                    // Optionally, you can display an error message or perform other actions
+                }
+            });
         });
     });
-});
 </script>
 
 
 <!-- change the color of the background of the font based on the status of leave request -->
 <script>
-var leaves = document.getElementsByClassName("status");
+    var leaves = document.getElementsByClassName("status");
 
-for (var i = 0; i < leaves.length; i++) {
-    var leaveStatus = leaves[i];
-    var status = leaveStatus.innerHTML.trim();
+    for (var i = 0; i < leaves.length; i++) {
+        var leaveStatus = leaves[i];
+        var status = leaveStatus.innerHTML.trim();
 
-    if (status == "Pending") {
-        leaveStatus.style.backgroundColor = '#f4a261';
-    } else if (status == "Approved") {
-        leaveStatus.style.backgroundColor = '#80ed99';
-    } else {
-        leaveStatus.style.backgroundColor = '#e63946';
+        if (status == "Pending") {
+            leaveStatus.style.backgroundColor = '#f4a261';
+        } else if (status == "Approved") {
+            leaveStatus.style.backgroundColor = '#80ed99';
+        } else {
+            leaveStatus.style.backgroundColor = '#e63946';
+        }
     }
-}
 </script>
