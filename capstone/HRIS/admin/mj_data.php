@@ -22,28 +22,19 @@ ob_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
-        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/scroller/2.0.5/js/dataTables.scroller.min.js"></script>
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/scroller/2.0.5/css/scroller.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/scroller/2.0.5/css/scroller.dataTables.min.css">
 
 
     <link rel="stylesheet" href="https://cdn.datatables.net/searchpanes/2.1.2/css/searchPanes.dataTables.min.css">
@@ -73,8 +64,7 @@ ob_start();
                     <a href="../login/mj_mainPage.php?idNumber=<?php echo $idNumber; ?>" class="navLink">Home</a>
                 </li>
                 <li class="navItem">
-                    <a href="../attendance/mj_attendance.php?idNumber=<?php echo $idNumber; ?>"
-                        class="navLink">Attendance</a>
+                    <a href="../attendance/mj_attendance.php?idNumber=<?php echo $idNumber; ?>" class="navLink">Attendance</a>
                 </li>
                 <li class="navItem">
                     <a href="../leave/mj_leave.php?idNumber=<?php echo $idNumber; ?>" class="navLink">Leave</a>
@@ -98,8 +88,7 @@ ob_start();
 
     <!-- header title -->
     <div class="adminHeaderContainer">
-        <span class="back" onclick="window.location.href='mj_adminPanel.php'"><i
-                class="fa-solid fa-backward"></i></span>
+        <span class="back" onclick="window.location.href='mj_adminPanel.php'"><i class="fa-solid fa-backward"></i></span>
         <p class="title">Employee Data Management</p>
     </div>
 
@@ -114,8 +103,7 @@ ob_start();
                                                                                                             } ?>">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <button class="refresh" onclick="window.location.href ='mj_data.php'"><i
-                        class="fa-solid fa-arrows-rotate"></i></button>
+                <button class="refresh" onclick="window.location.href ='mj_data.php'"><i class="fa-solid fa-arrows-rotate"></i></button>
             </div>
 
             <div class="filterContainer">
@@ -149,8 +137,7 @@ ob_start();
                         <option value="3">Maintenance</option>
                     </select>
                     <input type="submit" value="Apply" name="Apply" class="apply" form="dropDown">
-                    <button class="apply add" onclick='window.location.href="mj_add.php"'><i
-                            class="fa-solid fa-user-plus"></i></button>
+                    <button class="apply add" onclick='window.location.href="mj_add.php"'><i class="fa-solid fa-user-plus"></i></button>
                 </div>
             </div>
         </div>
@@ -239,47 +226,47 @@ ob_start();
     </div>
 
     <script>
-    let sql = "<?php echo $sql; ?>";
-    let totalRecords = <?php echo $totalRecords; ?>;
-    console.log(sql);
-    $(document).ready(function() {
-        $('#userTable').DataTable({
-            "bLengthChange": false,
-            "ServerSide": true,
-            "processing": true,
-            "searching": true,
-            "ordering": false,
-            "paging": false,
-            "info": false,
-            "sDom": "lrti",
-            "createdRow": function(row, data, dataIndex) {
-                // Add CSS class to alternate rows
-                if (dataIndex % 2 === 0) {
-                    $(row).css("background-color", "red");
-                } else {
-                    $(row).css("background-color", "blue");
-                }
-            },
-            "ajax": {
-                url: "../admin/mj_dataAjax.php", // json datasource (another file)
-                type: "POST", // method, the default is GET
-                data: {
-                    query: sql,
-                    totalData: totalRecords,
+        let sql = "<?php echo $sql; ?>";
+        let totalRecords = <?php echo $totalRecords; ?>;
+        console.log(sql);
+        $(document).ready(function() {
+            $('#userTable').DataTable({
+                "bLengthChange": false,
+                "ServerSide": true,
+                "processing": true,
+                "searching": true,
+                "ordering": false,
+                "paging": false,
+                "info": false,
+                "sDom": "lrti",
+                "createdRow": function(row, data, dataIndex) {
+                    // Add CSS class to alternate rows
+                    if (dataIndex % 2 === 0) {
+                        $(row).css("background-color", "red");
+                    } else {
+                        $(row).css("background-color", "blue");
+                    }
                 },
-                error: function(data) { // error handling
-                    console.log(data);
-                }
-            },
-            paging: true,
-            deferRender: true,
-            scrollY: 450,
-            scrollcollapse: false,
-            scroller: true,
-            scrollX: true,
-        });
+                "ajax": {
+                    url: "../admin/mj_dataAjax.php", // json datasource (another file)
+                    type: "POST", // method, the default is GET
+                    data: {
+                        query: sql,
+                        totalData: totalRecords,
+                    },
+                    error: function(data) { // error handling
+                        console.log(data);
+                    }
+                },
+                paging: true,
+                deferRender: true,
+                scrollY: 450,
+                scrollcollapse: false,
+                scroller: true,
+                scrollX: true,
+            });
 
-    });
+        });
     </script>
 </body>
 

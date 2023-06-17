@@ -2,8 +2,10 @@
 
 include('../connection.php'); // to connect to database
 
-session_start();
+
 $idNumber = $_GET['idNumber'];
+session_start();
+$idNumbers = $_SESSION['idNumber'];
 
 ?>
 
@@ -52,6 +54,7 @@ if ($query && $query->num_rows > 0) {
     $pagibigNumber = $row['pagibigNumber'];
     $tinNumber = $row['tinNumber'];
 }
+
 
 ?>
 
@@ -185,7 +188,9 @@ if ($query && $query->num_rows > 0) {
             <img src="../img/<?php echo $picture; ?>" alt="">
             <button class="edit" name="save" form="update" type="submit">Update<i
                     class="fa-solid fa-pen-nib"></i></button>
-            <button class="edit cancel" onclick="window.location.href='mj_info.php'">Cancel</button>
+            <button class="edit cancel"
+                onclick="window.location.href='mj_info.php?idNumber=<?php echo $idNumber; ?>'">Cancel
+            </button>
         </div>
 
         <div class="employeeInfo">

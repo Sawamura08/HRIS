@@ -1,6 +1,9 @@
 <?php
 
 include('../connection.php'); // to connect to database
+session_start();
+$idNumbers = $_SESSION['idNumber'];
+
 $idNumber = $_GET['idNumber'];
 ?>
 
@@ -49,8 +52,7 @@ if ($query && $query->num_rows > 0) {
     $pagibigNumber = $row['pagibigNumber'];
     $tinNumber = $row['tinNumber'];
 }
-session_start();
-$idNumber = $_SESSION['idNumber'];
+
 ?>
 
 <!DOCTYPE html>
@@ -121,7 +123,7 @@ $idNumber = $_SESSION['idNumber'];
         </div>
 
 
-
+        <?php $idNumber = $_GET['idNumber']; ?>
         <div class="employeeProfile">
             <img src="../img/<?php echo $picture; ?>" alt="">
             <p>Employee Number : <?php echo $idNumber ?></p>
