@@ -53,7 +53,7 @@ ob_start();
 <body>
 
     <header class="headers" style="width: 100%;">
-        <nav class="navbars">
+        <nav class=" navbars">
             <a href="#" class="navLogo">RGEM</a>
             <ul class="navMenu">
                 <li class="navItem">
@@ -80,7 +80,7 @@ ob_start();
         </nav>
     </header>
 
-    <div class="adminHeaderContainer" style="width:100%;">
+    <div class="adminHeaderContainer" style="width:103vw">
         <span class="back" onclick="window.location.href='mj_leaveManagement.php'"><i
                 class="fa-solid fa-backward"></i></span>
         <span class="title">Leave Manangement Software</span>
@@ -113,7 +113,7 @@ ob_start();
                             $requestType = "";
                         }
 
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        if (isset($_POST['request'])) {
                             if (isset($_POST['approve'])) {
                                 $request = $_POST['approve'];
                             } else {
@@ -192,12 +192,11 @@ ob_start();
                         $row = $query->fetch_assoc();
                         $leaveCount = $row['leaveCount'];
                     }
-
-
                     ?>
                     <h3><?php echo $leaveCount; ?></h3>
                     <h5>leaves left</h5>
                 </div>
+
                 <div class="requestContainer">
                     <a href="#">Requested Leave</a>
 
@@ -224,15 +223,15 @@ ob_start();
                     } else {
                         $sql = "SELECT * FROM hr_leaveHistory WHERE idNumber = " . $idNumber . "";
                     }
-                    $daysInWeek = 7;
-                    $startDate = date('Y-m-d', strtotime("-$daysInWeek days")); // subract the current date to 7 days
-                    $sql .= " AND dateRequest >= DATE_SUB(CURDATE(), INTERVAL $daysInWeek DAY)"; // select only the data who has records for the past 7 days;
+                    $daysInMonth = 30;
+                    $startDate = date('Y-m-d', strtotime("-$daysInMonth days")); // subract the current date to 7 days
+                    $sql .= " AND dateRequest >= DATE_SUB(CURDATE(), INTERVAL $daysInMonth DAY)"; // select only the data who has records for the past 7 days;
 
                     $query = $connectionString->query($sql);
                     ?>
                     <!-- filter leave -->
                     <div class="box">
-                        <form action="" method="post" id="form">
+                        <form action="" method="POST" id="form">
                             <select name="status">
 
                                 <option value="" disabled hidden selected>
