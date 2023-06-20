@@ -116,7 +116,7 @@ body {
 
 @media all and (min-width: 600px) and (min-height: 1000px) and (orientation: portrait) {
 	.adminHeaderContainer {
-		margin-top: 6vh;
+		margin-top: 5.8vh;
 	}
 
 	.function {
