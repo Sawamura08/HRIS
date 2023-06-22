@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&family=Pacifico&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	max-width: 100vw;
+	max-height: 100vh;
+	font-family: "Inter", sans-serif;
+	overflow-x: hidden;
+}
+
+.containers {
+	width: 100vw;
+	min-height: 80vh;
+	z-index: -1;
+}
+
+.adminHeaderContainer {
+	width: 100%;
+	padding: 1rem;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	background-color: #bfe1d7;
+	display: flex;
+	justify-content: center;
+	position: relative;
+	margin-top: 6.5vh;
+}
+
+.back {
+	position: relative;
+	left: -27%;
+	padding: 1rem;
+	background-color: #50c2c9;
+	color: white;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 9%;
+	cursor: pointer;
+}
+
+.adminHeaderContainer .title {
+	text-align: center;
+	margin-top: 0.5rem;
+	line-height: 3.5rem;
+	font-size: 1.8rem;
+	font-weight: 600;
+}
+
+/* modal */
+.modal {
+	display: block;
+	position: fixed;
+	z-index: 9999;
+	left: 0;
+	top: 0;
+	width: 100%;
+	max-height: 100vh;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 60% auto;
+	border-radius: 10%;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 90%;
+	padding: 1rem;
+
+	animation-name: modalAnim;
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in-out;
+}
+
+.modal-content h1 {
+	font-size: 2rem;
+	font-weight: 900;
+	color: #000;
+}
+
+.data {
+	display: flex;
+	margin: 0 1rem;
+	padding: 0 1rem;
+	flex-wrap: wrap;
+}
+
+.inputs {
+	outline: none;
+	border: solid 1px #50c2c9;
+	background-color: #dddd;
+	color: black;
+	padding: 0.5rem;
+	width: 40%;
+	margin: 1rem auto;
+	border-radius: 8px;
+	text-align: center;
+}
+
+.purpose {
+	width: 80%;
+}
+
+@keyframes modalAnim {
+	from {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.modal-content .text {
+	margin-top: 2.5rem;
+	text-align: center;
+}
+
+.buttonContainer {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.linkContainer {
+	width: 50%;
+	height: 15vh;
+	margin: 0.25rem auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#close,
+#go {
+	font-size: 1.5rem;
+	font-weight: 400;
+	padding: 0.8rem 0.5rem;
+	background-color: #50c2c9;
+	border-radius: 8px;
+	width: 30%;
+	text-align: center;
+	color: #000;
+	margin: 0.5rem auto;
+	box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	border: none;
+}
+
+#close:hover,
+#go:hover {
+	background-color: #50c2c9;
+	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+	transform: translateY(-7px);
+}
+
+/* end of modal */
+
+/* media queries */
+
+@media all and (min-width: 750px) and (min-height: 1000px) and (orientation: portrait) {
+	.modal-content {
+		margin: 50% auto;
+	}
+}
+
+@media all and (min-width: 800px) and (min-height: 1000px) and (orientation: portrait) {
+	.modal-content {
+		margin: 45% auto;
+		width: 80%;
+	}
+
+	.adminHeaderContainer {
+		margin-top: 0;
+	}
+}
+
+@media all and (min-width: 800px) and (min-height: 1000px) and (orientation: portrait) {
+	.inputs {
+		font-size: 1.8rem;
+	}
+
+	.modal-content h1 {
+		font-size: 2.8rem;
+	}
+}
+
+@media all and (min-width: 1000px) and (min-height: 600px) and (orientation: landscape) {
+	.adminHeaderContainer {
+		margin-top: 0;
+	}
+
+	.inputs {
+		font-size: 1.8rem;
+	}
+
+	.modal-content h1 {
+		font-size: 2.8rem;
+	}
+
+	.modal-content {
+		margin: 10% auto;
+		width: 50%;
+	}
+}

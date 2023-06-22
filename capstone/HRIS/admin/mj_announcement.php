@@ -118,13 +118,16 @@ ob_start();
 
                             echo "
                                 <tr>
-                                <td   td  class='align-middle'>" . $i++ . "</td>
-                                <td   td  class='align-middle'>$scheduledDate</td>
-                                <td   td  class='align-middle'>$newTime</td>
-                                <td   td  class='align-middle'>$purpose</td>
-                                <td   td  class='align-middle'>$venue</td>
-                                <td   td  class='align-middle'>$type</td>
-                                <td   td  class='align-middle' style='text-align:center;'><i class='fa-solid fa-pen-to-square' id ='button' data-value = '$announcementId'></i></td>
+                                <td  class='align-middle'>" . $i++ . "</td>
+                                <td  class='align-middle'>$scheduledDate</td>
+                                <td  class='align-middle'>$newTime</td>
+                                <td  class='align-middle'>$purpose</td>
+                                <td  class='align-middle'>$venue</td>
+                                <td  class='align-middle'>$type</td>
+                                <td class='align-middle' style='text-align:center;'>
+                                <i class='fa-solid fa-pen-to-square' id='button' onclick=\"window.location.href='mj_announcementAjax.php?announcementId=" . $announcementId . "'\"></i>
+                              </td>
+                              
                                 <tr>
                             
                             ";
@@ -138,7 +141,6 @@ ob_start();
         </div>
     </main>
 
-    <div id="result"></div>
 
 
 
@@ -146,32 +148,32 @@ ob_start();
 
 </html>
 <script>
-    $(document).ready(function() {
-        $("i#button").click(function() {
-            var value = $(this).attr("data-value");
-            console.log(value);
+    // $(document).ready(function() {
+    //     $("i#button").click(function() {
+    //         var value = $(this).attr("data-value");
+    //         console.log(value);
 
-            $.ajax({
-                url: 'mj_announcementAjax.php',
-                method: 'POST',
-                data: {
-                    value: value
-                },
-                success: function(response) {
+    //         $.ajax({
+    //             url: 'mj_announcementAjax.php',
+    //             method: 'POST',
+    //             data: {
+    //                 value: value
+    //             },
+    //             success: function(response) {
 
-                    /*            $("#myModal").remove(); */
-                    $("#result").html(response);
-                    $("#myModal").show();
-                }
-            })
-        });
-
-
-        $(document).on("click", "#close", function() {
-            $("#myModal").hide(); // Close the modal
-        });
+    //                 /*            $("#myModal").remove(); */
+    //                 $("#result").html(response);
+    //                 $("#myModal").show();
+    //             }
+    //         })
+    //     });
 
 
+    //     $(document).on("click", "#close", function() {
+    //         $("#myModal").hide(); // Close the modal
+    //     });
 
-    });
+
+
+    // });
 </script>
