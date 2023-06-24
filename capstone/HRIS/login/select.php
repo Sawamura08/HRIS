@@ -1,8 +1,8 @@
 <?php
-if (isset($_POST["annoucementId"])) {
+if (isset($_POST["announcementId"])) {
      $output = '';
      include("connection.php");
-     $query = "SELECT * FROM hr_annoucement WHERE annoucementId = '" . $_POST["annoucementId"] . "'";
+     $query = "SELECT * FROM hr_annoucement WHERE announcementId = '" . $_POST["announcementId"] . "'";
      $result = mysqli_query($connectionString, $query);
      $output .= '  
       <div class="table-responsive">  

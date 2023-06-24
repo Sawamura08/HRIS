@@ -228,32 +228,10 @@ ob_start();
 
 </html>
 <script>
-// $(document).ready(function() {
-//     $("i#button").click(function() {
-//         var value = $(this).attr("data-value");
-//         console.log(value);
+$(document).ready(function() {
+    $("#close").click(function() {
+        window.location.href = "mj_announcement.php";
+    })
 
-//         $.ajax({
-//             url: 'mj_announcementAjax.php',
-//             method: 'POST',
-//             data: {
-//                 value: value
-//             },
-//             success: function(response) {
-
-//                 /*            $("#myModal").remove(); */
-//                 $("#result").html(response);
-//                 $("#myModal").show();
-//             }
-//         })
-//     });
-
-
-//     $(document).on("click", "#close", function() {
-//         $("#myModal").hide(); // Close the modal
-//     });
-
-
-
-// });
+});
 </script>
