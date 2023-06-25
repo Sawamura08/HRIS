@@ -166,6 +166,24 @@ body {
 	transform: translateY(-7px);
 }
 
+.addContainer {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.add {
+	background-color: #50c2c9;
+	color: #000;
+	padding: 1rem;
+	border: 0;
+	outline: 0;
+	width: 5rem;
+	margin: 2rem;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
 /* end of modal */
 
 /* media queries */
