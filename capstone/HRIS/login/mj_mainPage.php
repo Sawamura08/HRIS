@@ -67,11 +67,11 @@ if ($query->num_rows > 0) {
 
     ?>
     <header class="headers">
-        <nav class="navbars">
+        <nav class=" navbars">
             <a href="#" class="navLogo">RGEM</a>
             <ul class="navMenu">
                 <li class="navItem">
-                    <a href="./mj_mainPage.php" class="navLink">Home</a>
+                    <a href="../login/mj_mainPage.php" class="navLink">Home</a>
                 </li>
                 <li class="navItem">
                     <a href="../attendance/mj_attendance.php" class="navLink">Attendance</a>
@@ -80,10 +80,10 @@ if ($query->num_rows > 0) {
                     <a href="../leave/mj_leave.php" class="navLink">Leave</a>
                 </li>
                 <li class="navItem">
-                    <a href="#" class="navLink">Profile</a>
+                    <a href="../admin/mj_adminPanel.php" class="navLink">Admin</a>
                 </li>
                 <li class="navItem">
-                    <a href="../admin/mj_admin.php" class="navLink">Admin</a>
+                    <a href="#" class="navLink">Log Out</a>
                 </li>
             </ul>
             <div class="hamburger">

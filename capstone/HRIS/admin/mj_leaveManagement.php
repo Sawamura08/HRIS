@@ -52,7 +52,7 @@ ob_start();
 <body>
 
     <header class="headers" style="width: 100%;">
-        <nav class="navbars">
+        <nav class=" navbars">
             <a href="#" class="navLogo">RGEM</a>
             <ul class="navMenu">
                 <li class="navItem">
@@ -65,10 +65,10 @@ ob_start();
                     <a href="../leave/mj_leave.php" class="navLink">Leave</a>
                 </li>
                 <li class="navItem">
-                    <a href="#" class="navLink">Profile</a>
+                    <a href="../admin/mj_adminPanel.php" class="navLink">Admin</a>
                 </li>
                 <li class="navItem">
-                    <a href="../admin/mj_adminPanel.php" class="navLink">Admin</a>
+                    <a href="#" class="navLink">Log Out</a>
                 </li>
             </ul>
             <div class="hamburger">

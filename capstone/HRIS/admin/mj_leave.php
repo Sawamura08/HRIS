@@ -66,10 +66,10 @@ ob_start();
                     <a href="../leave/mj_leave.php" class="navLink">Leave</a>
                 </li>
                 <li class="navItem">
-                    <a href="#" class="navLink">Profile</a>
+                    <a href="../admin/mj_adminPanel.php" class="navLink">Admin</a>
                 </li>
                 <li class="navItem">
-                    <a href="../admin/mj_adminPanel.php" class="navLink">Admin</a>
+                    <a href="#" class="navLink">Log Out</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -113,14 +113,12 @@ ob_start();
                             $requestType = "";
                         }
 
-                        if (isset($_POST['request'])) {
-                            if (isset($_POST['approve'])) {
-                                $request = $_POST['approve'];
-                            } else {
-                                $request = $_POST['reject'];
-                            }
 
-                            $sqlLeave = "UPDATE hr_leavehistory SET status = $request WHERE status = 0 AND idNumber = $idNumber AND dateRequest = '" . $dateRequest . "'";
+                        if (isset($_POST['approve'])) {
+                            $request = $_POST['approve'];
+
+
+                            echo $sqlLeave = "UPDATE hr_leavehistory SET status = $request WHERE status = 0 AND idNumber = $idNumber AND dateRequest = '" . $dateRequest . "'";
 
                             $queryLeave = $connectionString->query($sqlLeave);
 
@@ -133,6 +131,8 @@ ob_start();
                                 }
                             }
                         }
+
+
 
                         ?>
 

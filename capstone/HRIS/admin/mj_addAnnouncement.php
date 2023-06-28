@@ -85,7 +85,6 @@ ob_start();
         <p class="title">Annoucement Software</p>
     </div>
 
-
     <main class="containers">
         <div class="tableContainer">
             <table id="userTable" class="table table-info table-striped caption-top table-hover" style="width:100%;">
