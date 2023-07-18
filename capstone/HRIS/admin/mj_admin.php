@@ -54,7 +54,7 @@ ob_start();
                     <a href="../leave/mj_leave.php" class="navLink">Leave</a>
                 </li>
                 <li class="navItem">
-                    <a href="../admin/mj_adminPanel.php" class="navLink">Admin</a>
+                    <a href="../admin/mj_admin.php" class="navLink">Admin</a>
                 </li>
                 <li class="navItem">
                     <a href="#" class="navLink">Log Out</a>

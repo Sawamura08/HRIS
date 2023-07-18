@@ -29,17 +29,11 @@ if ($query->num_rows > 0) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
-        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -80,7 +74,7 @@ if ($query->num_rows > 0) {
                     <a href="../leave/mj_leave.php" class="navLink">Leave</a>
                 </li>
                 <li class="navItem">
-                    <a href="../admin/mj_adminPanel.php" class="navLink">Admin</a>
+                    <a href="../admin/mj_admin.php" class="navLink">Admin</a>
                 </li>
                 <li class="navItem">
                     <a href="#" class="navLink">Log Out</a>
@@ -122,8 +116,7 @@ if ($query->num_rows > 0) {
 
                 <!-- Annoucement -->
                 <div class="announcementContainer">
-                    <div class="thead"><span><i class="fa-sharp fa-solid fa-bullhorn"
-                                style="margin-right: 1rem;"></i></span>Annoucement</div>
+                    <div class="thead"><span><i class="fa-sharp fa-solid fa-bullhorn" style="margin-right: 1rem;"></i></span>Annoucement</div>
 
                     <?php
 
@@ -131,46 +124,43 @@ if ($query->num_rows > 0) {
 
 
                     ?>
-                    <table class="table caption-top table-hover table-secondary">
-                        <tbody>
-                            <?php
+                        <table class="table caption-top table-hover table-secondary">
+                            <tbody>
+                                <?php
                                 while ($row = $query->fetch_assoc()) {
 
 
                                 ?>
-                            <tr>
-                                <td class="table-info"><?php echo $row['scheduledDate'] ?></td>
-                                <td class="table-info"><?php echo $row['type'] == 0 ? "Meeting" : "General" ?></td>
-                                <td class="table-info">
-                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"
-                                        data-id='<?php echo $row["announcementId"]; ?>'><i
-                                            class="fa-solid fa-eye"></i></button>
-                                </td>
-                            </tr>
+                                    <tr>
+                                        <td class="table-info"><?php echo $row['scheduledDate'] ?></td>
+                                        <td class="table-info"><?php echo $row['type'] == 0 ? "Meeting" : "General" ?></td>
+                                        <td class="table-info">
+                                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" data-id='<?php echo $row["announcementId"]; ?>'><i class="fa-solid fa-eye"></i></button>
+                                        </td>
+                                    </tr>
                             <?php
                                 }
                             }
 
                             ?>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
 
-                    <!-- Bootstrap Modal -->
-                    <div id="myModal" class="modal fade" role="dialog">
-                        <div class="modal-dialog announce">
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header" style="display:flex; justify-content:space-evenly;">
-                                    <h4 class="modal-title">Annoucement Informations</h4>
-                                    <button type="button" class="close" data-dismiss="modal"
-                                        style="font-size: 4rem;">&times;</button>
+                        <!-- Bootstrap Modal -->
+                        <div id="myModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog announce">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header" style="display:flex; justify-content:space-evenly;">
+                                        <h4 class="modal-title">Annoucement Informations</h4>
+                                        <button type="button" class="close" data-dismiss="modal" style="font-size: 4rem;">&times;</button>
 
-                                </div>
-                                <div class="modal-body">
+                                    </div>
+                                    <div class="modal-body">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
 
                 </div>
@@ -339,8 +329,7 @@ if ($query->num_rows > 0) {
 
                 ?>
                 <div class="attendanceContainer">
-                    <div class="thead"><span><i class="fa-sharp fa-solid fa-clipboard-user"
-                                style="margin-right: 1rem;"></i></span>Attendance
+                    <div class="thead"><span><i class="fa-sharp fa-solid fa-clipboard-user" style="margin-right: 1rem;"></i></span>Attendance
                     </div>
                     <div id="DigitalCLOCK" class="time" onload="showTime()"></div>
                     <div class="attendanceButtonContainer">
@@ -360,8 +349,7 @@ if ($query->num_rows > 0) {
             <div class="right">
                 <!-- Calender -->
                 <div class="wrapper">
-                    <div class="thead"><span><i class="fa-sharp fa-solid fa-calendar-days"
-                                style="margin-right: 1rem;"></i></span>Calendar</div>
+                    <div class="thead"><span><i class="fa-sharp fa-solid fa-calendar-days" style="margin-right: 1rem;"></i></span>Calendar</div>
                     <div class="container-calendar">
                         <h3 id="monthAndYear"></h3>
                         <div class="button-container-calendar">
@@ -405,234 +393,234 @@ if ($query->num_rows > 0) {
 
 <!-- modal for attendance -->
 <script type="text/javascript">
-$(document).ready(function() {
-    $(' #myModal').on('show.bs.modal', function(e) {
-        var announcementId = $(e.relatedTarget).data('id');
-        $.ajax({
-            type: 'post',
-            url: 'select.php',
-            data: {
-                announcementId: announcementId
-            },
-            success: function(response) {
-                $('.modal-body').html(response);
-            }
+    $(document).ready(function() {
+        $(' #myModal').on('show.bs.modal', function(e) {
+            var announcementId = $(e.relatedTarget).data('id');
+            $.ajax({
+                type: 'post',
+                url: 'select.php',
+                data: {
+                    announcementId: announcementId
+                },
+                success: function(response) {
+                    $('.modal-body').html(response);
+                }
+            });
         });
     });
-});
 </script>
 
 <!-- modal for time out -->
 <script>
-$("#go").click(function() {
-    var idNumber = <?php echo "'$idNumber'"; ?>; // Replace with actual idNumber variable
-    $.ajax({
-        url: "timeOut.php",
-        type: "POST",
-        data: {
-            idNumber: idNumber
-        },
-        success: function(response) {
-            // Redirect to the welcome page with the idNumber as a query parameter
-            window.location.href =
-                "http://localhost/capstone/HRIS/capstone/HRIS/attendance/mj_attendance.php";
-        },
-        error: function(xhr, status, error) {
-            alert("Error: " + error);
-        }
+    $("#go").click(function() {
+        var idNumber = <?php echo "'$idNumber'"; ?>; // Replace with actual idNumber variable
+        $.ajax({
+            url: "timeOut.php",
+            type: "POST",
+            data: {
+                idNumber: idNumber
+            },
+            success: function(response) {
+                // Redirect to the welcome page with the idNumber as a query parameter
+                window.location.href =
+                    "http://localhost/capstone/HRIS/capstone/HRIS/attendance/mj_attendance.php";
+            },
+            error: function(xhr, status, error) {
+                alert("Error: " + error);
+            }
+        });
     });
-});
 </script>
 
 
 <!-- script for normal modals -->
 <script>
-// Get the modal
-var modal = document.getElementById("myModals");
+    // Get the modal
+    var modal = document.getElementById("myModals");
 
-// modal variable
-let okay = document.getElementById("close");
+    // modal variable
+    let okay = document.getElementById("close");
 
-okay.onclick = function() {
-    modal.style.display = "none";
-}
+    okay.onclick = function() {
+        modal.style.display = "none";
+    }
 </script>
 
 <!-- script for calendar -->
 <script>
-function generate_year_range(start, end) {
-    var years = "";
-    for (var year = start; year <= end; year++) {
-        years += "<option value='" + year + "'>" + year + "</option>";
+    function generate_year_range(start, end) {
+        var years = "";
+        for (var year = start; year <= end; year++) {
+            years += "<option value='" + year + "'>" + year + "</option>";
+        }
+        return years;
     }
-    return years;
-}
 
-today = new Date();
-currentMonth = today.getMonth();
-currentYear = today.getFullYear();
-selectYear = document.getElementById("year");
-selectMonth = document.getElementById("month");
+    today = new Date();
+    currentMonth = today.getMonth();
+    currentYear = today.getFullYear();
+    selectYear = document.getElementById("year");
+    selectMonth = document.getElementById("month");
 
 
-createYear = generate_year_range(1970, 2050);
-/** or
- * createYear = generate_year_range( 1970, currentYear );
- */
+    createYear = generate_year_range(1970, 2050);
+    /** or
+     * createYear = generate_year_range( 1970, currentYear );
+     */
 
-document.getElementById("year").innerHTML = createYear;
+    document.getElementById("year").innerHTML = createYear;
 
-var calendar = document.getElementById("calendar");
-var lang = calendar.getAttribute('data-lang');
+    var calendar = document.getElementById("calendar");
+    var lang = calendar.getAttribute('data-lang');
 
-var months = "";
-var days = "";
+    var months = "";
+    var days = "";
 
-var monthDefault = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
-    "October", "November", "December"
-];
-
-var dayDefault = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-if (lang == "en") {
-    months = monthDefault;
-    days = dayDefault;
-} else if (lang == "id") {
-    months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober",
-        "November", "Desember"
+    var monthDefault = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
+        "October", "November", "December"
     ];
-    days = ["Ming", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
-} else if (lang == "fr") {
-    months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre",
-        "Novembre", "Décembre"
-    ];
-    days = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
-} else {
-    months = monthDefault;
-    days = dayDefault;
-}
+
+    var dayDefault = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    if (lang == "en") {
+        months = monthDefault;
+        days = dayDefault;
+    } else if (lang == "id") {
+        months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober",
+            "November", "Desember"
+        ];
+        days = ["Ming", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
+    } else if (lang == "fr") {
+        months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre",
+            "Novembre", "Décembre"
+        ];
+        days = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
+    } else {
+        months = monthDefault;
+        days = dayDefault;
+    }
 
 
-var $dataHead = "<tr>";
-for (dhead in days) {
-    $dataHead += "<th data-days='" + days[dhead] + "'>" + days[dhead] + "</th>";
-}
-$dataHead += "</tr>";
+    var $dataHead = "<tr>";
+    for (dhead in days) {
+        $dataHead += "<th data-days='" + days[dhead] + "'>" + days[dhead] + "</th>";
+    }
+    $dataHead += "</tr>";
 
-//alert($dataHead);
-document.getElementById("thead-month").innerHTML = $dataHead;
-
-
-monthAndYear = document.getElementById("monthAndYear");
-showCalendar(currentMonth, currentYear);
+    //alert($dataHead);
+    document.getElementById("thead-month").innerHTML = $dataHead;
 
 
-
-function next() {
-    currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
-    currentMonth = (currentMonth + 1) % 12;
+    monthAndYear = document.getElementById("monthAndYear");
     showCalendar(currentMonth, currentYear);
-}
-
-function previous() {
-    currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
-    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
-    showCalendar(currentMonth, currentYear);
-}
-
-function jump() {
-    currentYear = parseInt(selectYear.value);
-    currentMonth = parseInt(selectMonth.value);
-    showCalendar(currentMonth, currentYear);
-}
-
-function showCalendar(month, year) {
-
-    var firstDay = (new Date(year, month)).getDay();
-
-    tbl = document.getElementById("calendar-body");
 
 
-    tbl.innerHTML = "";
+
+    function next() {
+        currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+        currentMonth = (currentMonth + 1) % 12;
+        showCalendar(currentMonth, currentYear);
+    }
+
+    function previous() {
+        currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+        currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+        showCalendar(currentMonth, currentYear);
+    }
+
+    function jump() {
+        currentYear = parseInt(selectYear.value);
+        currentMonth = parseInt(selectMonth.value);
+        showCalendar(currentMonth, currentYear);
+    }
+
+    function showCalendar(month, year) {
+
+        var firstDay = (new Date(year, month)).getDay();
+
+        tbl = document.getElementById("calendar-body");
 
 
-    monthAndYear.innerHTML = months[month] + " " + year;
-    selectYear.value = year;
-    selectMonth.value = month;
-
-    // creating all cells
-    var date = 1;
-    for (var i = 0; i < 6; i++) {
-
-        var row = document.createElement("tr");
+        tbl.innerHTML = "";
 
 
-        for (var j = 0; j < 7; j++) {
-            if (i === 0 && j < firstDay) {
-                cell = document.createElement("td");
-                cellText = document.createTextNode("");
-                cell.appendChild(cellText);
-                row.appendChild(cell);
-            } else if (date > daysInMonth(month, year)) {
-                break;
-            } else {
-                cell = document.createElement("td");
-                cell.setAttribute("data-date", date);
-                cell.setAttribute("data-month", month + 1);
-                cell.setAttribute("data-year", year);
-                cell.setAttribute("data-month_name", months[month]);
-                cell.className = "date-picker";
-                cell.innerHTML = "<span>" + date + "</span>";
+        monthAndYear.innerHTML = months[month] + " " + year;
+        selectYear.value = year;
+        selectMonth.value = month;
 
-                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                    cell.className = "date-picker selected";
+        // creating all cells
+        var date = 1;
+        for (var i = 0; i < 6; i++) {
+
+            var row = document.createElement("tr");
+
+
+            for (var j = 0; j < 7; j++) {
+                if (i === 0 && j < firstDay) {
+                    cell = document.createElement("td");
+                    cellText = document.createTextNode("");
+                    cell.appendChild(cellText);
+                    row.appendChild(cell);
+                } else if (date > daysInMonth(month, year)) {
+                    break;
+                } else {
+                    cell = document.createElement("td");
+                    cell.setAttribute("data-date", date);
+                    cell.setAttribute("data-month", month + 1);
+                    cell.setAttribute("data-year", year);
+                    cell.setAttribute("data-month_name", months[month]);
+                    cell.className = "date-picker";
+                    cell.innerHTML = "<span>" + date + "</span>";
+
+                    if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                        cell.className = "date-picker selected";
+                    }
+                    row.appendChild(cell);
+                    date++;
                 }
-                row.appendChild(cell);
-                date++;
+
+
             }
 
-
+            tbl.appendChild(row);
         }
 
-        tbl.appendChild(row);
     }
 
-}
-
-function daysInMonth(iMonth, iYear) {
-    return 32 - new Date(iYear, iMonth, 32).getDate();
-}
+    function daysInMonth(iMonth, iYear) {
+        return 32 - new Date(iYear, iMonth, 32).getDate();
+    }
 </script>
 
 <!-- script for real time clock -->
 <script>
-function showTime() {
-    var date = new Date();
-    var h = date.getHours();
-    var m = date.getMinutes();
-    var s = date.getSeconds();
-    var session = "AM";
+    function showTime() {
+        var date = new Date();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+        var session = "AM";
 
-    if (h == 0) {
-        h = 12;
+        if (h == 0) {
+            h = 12;
+        }
+
+        if (h > 12) {
+            h = h - 12;
+            session = "PM";
+        }
+
+        h = (h < 10) ? "0" + h : h;
+        m = (m < 10) ? "0" + m : m;
+        s = (s < 10) ? "0" + s : s;
+
+        var time = h + ":" + m + ":" + s + " " + session;
+        document.getElementById("DigitalCLOCK").innerText = time;
+        document.getElementById("DigitalCLOCK").textContent = time;
+
+        setTimeout(showTime, 1000);
+
     }
 
-    if (h > 12) {
-        h = h - 12;
-        session = "PM";
-    }
-
-    h = (h < 10) ? "0" + h : h;
-    m = (m < 10) ? "0" + m : m;
-    s = (s < 10) ? "0" + s : s;
-
-    var time = h + ":" + m + ":" + s + " " + session;
-    document.getElementById("DigitalCLOCK").innerText = time;
-    document.getElementById("DigitalCLOCK").textContent = time;
-
-    setTimeout(showTime, 1000);
-
-}
-
-showTime();
+    showTime();
 </script>
